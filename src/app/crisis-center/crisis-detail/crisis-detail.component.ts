@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Crisis } from '../crisis';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CrisisService } from '../crisis.service';
@@ -22,13 +22,18 @@ export class CrisisDetailComponent implements OnInit {
 
   ngOnInit() {
     this.crisis$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => this.service.getCrisis(params.get('id'))),
+      switchMap((params: ParamMap) => {
+        return this.service.getCrisis(params.get('id'));
+      }),
     );
   }
 
-  goToCrises(crisis: Crisis) {
+  gotoCrises(crisis: Crisis) {
     const crisisId = crisis ? crisis.id : null;
-    this.router.navigate([ '/heroes', { id: crisisId, foo: 'foo' } ]);
+    this.router.navigate(
+      [ '../', { id: crisisId, foo: 'foo' } ],
+      { relativeTo: this.route },
+    );
   }
 
 }
