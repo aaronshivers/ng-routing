@@ -10,6 +10,8 @@ import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { FormsModule } from '@angular/forms';
 import { AdminModule } from './admin/admin.module';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,13 @@ import { AdminModule } from './admin/admin.module';
   ],
   imports: [
     AdminModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    HeroesModule,
     CrisisCenterModule,
-    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    HeroesModule,
+    AuthModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [ AppComponent ],
