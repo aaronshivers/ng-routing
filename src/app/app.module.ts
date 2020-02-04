@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { FormsModule } from '@angular/forms';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     ComposeMessageComponent,
   ],
   imports: [
+    AdminModule,
     BrowserAnimationsModule,
     BrowserModule,
     HeroesModule,
